@@ -1,0 +1,13 @@
+<div 
+    class="root__snackBar" 
+    [ngClass]="{
+        'show__snackBar': snackBarObj.isOpen, 
+        'snackBar__error': !snackBarObj.isSuccess,
+        'snackBar__success': snackBarObj.isSuccess
+    }"
+>   
+    <app-svg-success *ngIf="snackBarObj.isSuccess"></app-svg-success>
+    <app-svg-error *ngIf="!snackBarObj.isSuccess"></app-svg-error>
+    <p>{{snackBarObj.message}}</p>
+
+</div>

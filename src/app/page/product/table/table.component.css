@@ -1,0 +1,233 @@
+.root__table{
+    margin-top: 40px;
+}
+
+    .root__table__headers{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #e9ecf2;
+    }
+
+    .root__table__loading{
+        width: 100%;
+        height: 400px;
+        background-color: #ffff;
+        border: 1px solid #e7e9ee;
+        border-collapse: collapse;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .root__table__table{
+        background-color: #ffff;
+        border-radius: 5px;
+        border: 1px solid #e7e9ee;
+        border-collapse: collapse;
+        overflow-x: auto;
+        height: 67vh;
+        padding: 0px !important;
+    }
+
+        .root__table__table table{
+            width: 100%;
+        }
+
+        .root__table__table, th , td  {
+            border-bottom: 1px solid #e7e9ee;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        .root__table__table thead tr {
+            background-color: #f6f7fb;
+        }
+
+        .root__table__table tbody tr:hover {
+            transition: all 0.3s;
+            background-color: #f6f7fb;
+        }
+
+        .root__table__table th p{
+            font-family: 'Source Serif 4';
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .root__table__table td p{
+            font-family: 'Source Serif 4';
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+            .root__table__actions{
+                position: relative;
+                display: inline-block;
+            }
+
+            .root__table__actions:hover .root__table__actions__contente{
+                z-index: 10;
+                opacity: 1;
+                visibility: visible;
+                transform: translate(0, -5px);
+                transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+            }
+
+                .root__table__actions__iconMore{
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    padding: 5px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .root__table__actions__iconMore:hover{
+                    cursor: pointer;
+                    background-color: rgba(0, 0, 0, 0.08);
+                    transition: all 0.5s;
+                }
+
+                .root__table__actions__icon{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 5px;
+                }
+
+                .root__table__actions__icon:hover{
+                    cursor: pointer;
+                    background-color: rgba(0, 0, 0, 0.08);
+                    transition: all 0.5s;
+                }
+
+                .root__table__actions__icon__p{
+                    color: #0f265c;
+                    font-size: 12px !important;
+                    font-weight: 600 !important;
+                }
+
+            .root__table__actions__contente{
+                box-shadow: -3px 4px 8px -6px #FFFF, -2px 4px 10px -4px #c4c4c4;
+                border: 1px solid #e5e5e5;
+                border-radius: 5px;
+                background-color: #FFFF;
+                width: 80px;
+
+                /* popover */
+                opacity: 0;
+                visibility: hidden;
+                position: absolute;
+                left: -22px;
+                transform: translate(0, -20px);
+            }
+
+            .root__table__actions__contente::before{
+                position: absolute;
+                z-index: -1;
+                content: "";
+                right: calc(50% - 10px);
+                top: -8px;
+                border-style: solid;
+                border-width: 0 10px 10px 10px;
+                border-color: transparent transparent #bfbfbf transparent;
+                transition-duration: 0.3s;
+                transition-property: transform;
+            }
+
+.root__table__footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #e7e9ee;
+    border-collapse: collapse;   
+    margin-top: 5px;     
+}
+
+    .root__table__footer select{
+        width: 70px;
+        height: 40px;
+        padding: 7px;
+        outline: none;
+        border: 1px solid #cfd4de;
+        border-radius: 5px;
+        font-family: 'Source Serif 4';
+        color: #343a40;
+    }
+
+    .root__table__footer option{
+        padding: 5px;
+        font-family: 'Source Serif 4';
+    }
+
+    .root__table__footer p{
+        font-family: 'Source Serif 4';
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    @media (min-width: 250px) { 
+
+        .root__table{
+           margin-top: 10px;
+        }
+
+        .root__table__headers{
+            flex-direction: column;
+            align-items: center;       
+        }
+
+        .root__table__table th p{
+            font-size: 11px;
+        }
+
+        .root__table__table td p{
+            font-size: 11px;
+        }
+
+        .root__table__footer p{
+            font-size: 11px;
+        }
+
+        .root__table__footer select{
+            padding: 5px;
+            width: 60px;
+            height: 30px;
+        }
+    }
+    @media (min-width: 768px) { 
+
+        .root__table__headers{
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .root__table__table th p{
+            font-size: 14px;
+        }
+
+        .root__table__table td p{
+            font-size: 14px;
+        }
+
+        .root__table{
+            margin-top: 40px;
+        }
+
+        .root__table__footer p{
+            font-size: 14px;
+        }
+
+        .root__table__footer select{
+            padding: 7px;
+            width: 70px;
+            height: 40px;
+        }
+    }

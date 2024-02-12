@@ -1,0 +1,40 @@
+<div
+    [ngClass]="{'isOpenModal' : isOpenModal }"
+    class="root__modal"
+>
+    <div 
+        class="root__modal__container" 
+        [ngStyle]="{'height.px': height, 'width.px': width}"
+    >
+        <div class="root__modal__container__headers">
+            <h4>{{title}}</h4>
+        </div>
+        <div class="root__modal__container__ngContent">
+            <ng-content>
+    
+            </ng-content>
+        </div>
+
+        <div 
+            class="root__modal__container__button"
+            [ngClass]="{'isBtnCentered': isBtnCentered}"
+            *ngIf="isShowButtons"
+        >
+            <div style="margin-right: 10px;">
+                <app-btn-primary 
+                    [variant]="'secondary'"
+                    [label]="labelBtnSecondary"
+                    (onClickEvent)="onClickSecondary()"
+                ></app-btn-primary>
+            </div>
+            <app-btn-primary 
+                [variant]="'primary'"
+                [label]="labelBtnPrimary"
+                [disabled]="isSubmitting"
+                [isSubmitting]="isSubmitting"
+                (onClickEvent)="onSubmit()"
+
+            ></app-btn-primary>
+        </div>
+    </div>
+</div>

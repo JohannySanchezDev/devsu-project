@@ -1,0 +1,44 @@
+.input__value {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+    .input__value label{
+        font-size: 13px;
+        font-weight: 600;
+        color: #030c2d;
+        margin-bottom: 5px;
+    }
+
+    .input__value input{
+        width: 100%;
+        height: 40px;
+        padding: 7px;
+        outline: none;
+        border: 1px solid #cfd4de;
+        border-radius: 5px;
+        font-family: 'Source Serif 4';
+        color: #343a40;
+        margin-bottom: 5px;
+    }
+
+        .input__value input:focus{
+            border-color: #ffc500;
+        }
+
+        .input__value input::placeholder{
+            color: #6f7d9d;
+        }
+
+        .input__value p{
+            color: tomato;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .input__value__error{
+            border-color: tomato !important;
+            box-shadow: 0 0 5px tomato !important;
+        }

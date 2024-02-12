@@ -1,0 +1,72 @@
+    <div class="root__table">
+        <div class="root__table__headers">
+            <app-input-search
+                (searchValueEvent)="searchProduct($event)"
+            >
+            </app-input-search>
+            <app-btn-primary
+                label="Agregar"
+                (onClickEvent)="onClickAdd()"
+                [disabled]="false"
+            >
+            </app-btn-primary>
+        </div>
+
+        <div class="root__table__loading" *ngIf="isLoadingTable">
+            <img src="../../../../assets/loading.gif" alt="Cargando..."> 
+        </div>
+
+        <div class="root__table__table">
+            <table *ngIf="!isLoadingTable">
+                <thead>
+                    <tr>
+                        <th scope="col"><p>Ítems</p></th>
+                        <th><p>Logo</p></th>
+                        <th [align]="'left'"><p>Nombre del Producto</p></th>
+                        <th [align]="'left'"><p>Descripción</p></th>
+                        <th><p>Fecha de Liberación</p></th>
+                        <th><p>Fecha de Restructuración</p></th>
+                        <th><p></p></th>
+                    </tr>
+                </thead>
+            
+                <tbody *ngFor="let item of listProduct; let i = index">    
+                    <tr >
+                        <td [align]="'center'" scope="col"><p>{{i + 1}}</p></td>
+                        <td [align]="'center'"><img src={{item.logo}} height="20px"></td>
+                        <td><p>{{item.name}}</p></td>
+                        <td><p>{{item.description}}</p></td>
+                        <td [align]="'center'"><p>{{item.date_release | date : 'dd-MM-yyyy'}}</p></td>
+                        <td [align]="'center'"><p>{{item.date_revision | date : 'dd-MM-yyyy'}}</p></td>
+                        <td [align]="'center'">
+                            <div class="root__table__actions">
+                                <div class="root__table__actions__iconMore">
+                                    <app-svg-more-vertical></app-svg-more-vertical>
+                                </div>
+    
+                                <div class="root__table__actions__contente">
+                                    <div (click)="onClickEdit(item)" class="root__table__actions__icon">
+                                        <app-svg-edit></app-svg-edit>
+                                        <p class="root__table__actions__icon__p">Editar</p>
+                                    </div>
+                                    <div (click)="onClickDelete(item)" class="root__table__actions__icon">
+                                        <app-svg-delete></app-svg-delete>
+                                        <p class="root__table__actions__icon__p">Eliminar</p>
+                                    </div>
+                                </div>        
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="root__table__footer">
+        <p>{{listProduct.length}} Resultados</p>
+        <select [(ngModel)]="itemCaptured" name="select" (change)="oncaptureElement()">
+            <option *ngFor="let item of listFilterValue; let i = index">
+                {{item}}
+            </option>
+        </select>
+    </div>

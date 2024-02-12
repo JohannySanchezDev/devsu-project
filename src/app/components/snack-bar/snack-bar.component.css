@@ -1,0 +1,65 @@
+.root__snackBar{
+    position: fixed;
+    z-index: 1000;
+    min-width: 300px;
+    width: auto;
+    max-width: 500px;
+    border-radius: 5px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+
+}
+
+    .root__snackBar p{
+        color:#008000;
+        margin-left: 20px;
+        vertical-align: middle;
+    }
+
+.snackBar__success{
+    border: 1px solid #008000;
+    background-color: #c8e6c9;
+}
+
+    .snackBar__success p{
+        color:#008000;
+    }
+
+.snackBar__error{
+    border: 1px solid #dc3545;
+    background-color: #FADBD8;
+}
+
+    .snackBar__error p{
+        color: #dc3545;
+    }
+
+.show__snackBar{
+    right: 30px;
+    bottom: 30px;
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein { 
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein { 
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout{ 
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0px; opacity: 0;}
+}
+
+@keyframes fadeout{ 
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0px; opacity: 0;}
+}

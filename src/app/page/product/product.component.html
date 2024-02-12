@@ -1,0 +1,50 @@
+<div class="root">
+    <app-headers></app-headers>
+    <app-table
+        [listProduct]="listSearchProduct"
+        [isLoadingTable]="isLoadingTable"
+        [listFilterValue]="listFilterValue"
+        (onClickAddEvent)="onClickAddProduct()"
+        (onClickEditEvent)="onClickEditProduct($event)"
+        (onClickDeleteEvent)="onClickDeleteProduct($event)"
+        (searchValueEvent)="searchProductValue($event)"
+        (filterValueEvent)="onFiilterValueTable($event)"
+    ></app-table>
+</div>
+
+<app-modal
+    [isOpenModal]="isOpenModalForm"
+    [height]="450"
+    [title]="!isEditting ? 'Agregar Productos financieros' : 'Editar Productos financieros'"
+    [isShowButtons]="false"
+>
+    <app-form
+        [isEditting]="isEditting"
+        [objProductCommand]="objProductCommand"
+        (onSubmitEvent)="onSubmitForm($event)"
+        (onCancelEvent)="onCancelForm()"
+    >
+
+    </app-form>
+</app-modal>
+
+<app-modal
+    [isOpenModal]="isOpenModalDelete"
+    [title]="'Eliminar Productos'"
+    [width]="400"
+    [height]="350"
+    [isBtnCentered]="true"
+    [isSubmitting]="isSubmittingDelete"
+    (onClickSecondaryEvent)="onCancelDelete()"
+    (onClickPrimaryEvent)="onSubmitDelete()"
+
+>
+    <app-form-delete
+        [objProductCommand]="objProductCommand"
+    ></app-form-delete>
+</app-modal>
+
+<app-snack-bar
+    [snackBarObj]="snackBarObj"
+    (onCloseSnackBarEvent)="onCloseSnackBar()"
+></app-snack-bar>

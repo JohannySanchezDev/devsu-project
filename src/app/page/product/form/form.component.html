@@ -1,0 +1,141 @@
+<div>
+    <form class="root__form" [formGroup]="registerForm">
+        <div class="root__form__contente">
+            <app-input-value
+                [control]="'id'"
+                [label]="'ID'"
+                [isError]="formData.id.isError"
+                [textError]="formData.id.messageError"
+            >
+            <input
+                type="text"
+                id="id" 
+                name="id"  
+                [placeholder]="'Ej.: 1... 24....'"
+                [ngClass]="{'input__value__error': formData.id.isError}"
+                formControlName="id"
+                autocomplete="off"
+                (blur)='onGetError($event, formData.id.name)'
+                [value]="registerForm.controls['id'].value"
+            />
+            </app-input-value>
+
+            <app-input-value
+                [control]="'name'"
+                [label]="'Nombre'"
+                [isError]="formData.name.isError"
+                [textError]="formData.name.messageError"
+            >
+            <input
+                type="text"
+                id="name" 
+                name="name"  
+                [placeholder]="'Jhon Do...Susam Martinez...'"
+                [ngClass]="{'input__value__error': formData.name.isError}"
+                formControlName="name"
+                autocomplete="off"
+                (blur)='onGetError($event, formData.name.name)'
+                [value]="registerForm.controls['name'].value"
+            />
+            </app-input-value>
+
+            <app-input-value
+                [control]="'description'"
+                [label]="'Descripción'"
+                [isError]="formData.description.isError"
+                [textError]="formData.description.messageError"
+            >
+                <input            
+                    type="text"
+                    id="description" 
+                    name="description"  
+                    [placeholder]="'Describa...'"
+                    [ngClass]="{'input__value__error': formData.description.isError}"
+                    formControlName="description"
+                    autocomplete="off"
+                    (blur)='onGetError($event, formData.description.name)'
+                    [value]="registerForm.controls['description'].value"
+                />
+            </app-input-value>
+
+            <app-input-value
+                [control]="'logo'"
+                [label]="'Logo'"
+                [isError]="formData.logo.isError"
+                [textError]="formData.logo.messageError"
+            >
+            <input
+                type="text"
+                id="logo" 
+                name="logo"  
+                placeholder="https://data:image/jpeg;base64"
+                [ngClass]="{'input__value__error': formData.logo.isError}"
+                formControlName="logo"
+                autocomplete="off"
+                (blur)='onGetError($event, formData.logo.name)'
+                [value]="registerForm.controls['logo'].value"
+            />
+            </app-input-value>
+
+            <app-input-value
+                [control]="'date_release'"
+                [label]="'Fecha de Liberación'"
+                [isError]="formData.date_release.isError"
+                [textError]="formData.date_release.messageError"
+            >
+            <input
+                data-date-format="yyyy-mm-dd"
+                min={{minDate}}
+                onfocus="this.min=new Date().toISOString().split('T')[0]"
+                (change)="onVerifyDateRelease()"
+                type="date"
+                id="date_release" 
+                name="date_release"  
+                [placeholder]="'yyyy-mm-dd'"
+                [ngClass]="{'input__value__error': formData.date_release.isError}"
+                autocomplete="off"
+                formControlName="date_release"
+                [value]="registerForm.controls['date_release'].value"
+            />
+            </app-input-value>
+
+            <app-input-value
+                [control]="'date_revision'"
+                [label]="'Fecha de Revisión'"
+                [isError]="formData.date_revision.isError"
+                [textError]="formData.date_revision.messageError"
+            >
+            <input
+                [readonly]="true"
+                data-date-format="yyyy-mm-dd"
+                type="date"
+                id="date_revision" 
+                name="date_revision"  
+                [placeholder]="'yyyy-mm-dd'"
+                [ngClass]="{'input__value__error': formData.date_revision.isError}"
+                autocomplete="off"
+                formControlName="date_revision"
+                [value]="registerForm.controls['date_revision'].value"                
+            />
+            </app-input-value>
+        </div>
+        <div class="root__form__buttons">
+            <div style="margin-right: 10px;">
+                <app-btn-primary 
+                    [variant]="'secondary'"
+                    [label]="'Cerrar'"
+                    (onClickEvent)="onCancel()"
+                    [disabled]="false"
+                ></app-btn-primary>
+                
+            </div>
+            <app-btn-primary 
+                [variant]="'primary'"
+                [label]="'Procesar'"
+                [disabled]="!registerForm.valid || isSubmitting"
+                [isSubmitting]="isSubmitting"
+                (onClickEvent)="onSubmit()"
+            ></app-btn-primary>
+        </div>
+    </form>
+</div>

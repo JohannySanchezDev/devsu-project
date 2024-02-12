@@ -1,0 +1,8 @@
+<div class="input__value">
+    <label [for]="control">{{label}}</label>
+    <ng-content>
+    
+    </ng-content>
+    <p *ngIf="isError">{{textError}}</p>
+    <p *ngIf="!isError" style="height: 14px;"></p>
+</div>

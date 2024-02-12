@@ -1,0 +1,17 @@
+
+<div class="btn__root">
+    <button 
+        [ngClass]="{'btn__root__primary' : variant === 'primary', 'btn__root__secondary' : variant === 'secondary'}"
+        (click)="handleClick()"
+        [disabled]="disabled"
+    >
+        {{label}}
+    </button>
+    <img 
+        *ngIf="isSubmitting"
+        height="22px" 
+        width="22px" 
+        src="../../../assets/loading.gif" 
+        alt="loading..."
+    >
+</div>
