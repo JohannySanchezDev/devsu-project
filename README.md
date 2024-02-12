@@ -25,7 +25,7 @@ Para este proyecto usé las siguientes tecnologías:
 ```sh
 ng serve -o
 ```
-## Pasos para correr unit tests con covertura
+## Pasos para correr unit tests con cobertura
 
 ```sh
 npx jest --coverage
